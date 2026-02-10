@@ -1,72 +1,77 @@
 import { motion } from "framer-motion";
-import { Award, Users, Clock, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 
 const stats = [
-  { icon: Award, value: "10+", label: "Years Experience" },
-  { icon: Users, value: "50+", label: "Clients Served" },
-  { icon: Clock, value: "24/7", label: "Support" },
-  { icon: Zap, value: "99.9%", label: "Uptime SLA" },
+  { value: "10+", label: "Years" },
+  { value: "50+", label: "Clients" },
+  { value: "24/7", label: "Support" },
+  { value: "99.9%", label: "Uptime" },
 ];
 
 const AboutSection = () => {
   return (
-    <section id="about" className="section-padding bg-card/30">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="about" className="section-padding border-t border-border/20">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Text */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-3">
+            <p className="text-2xs font-medium text-primary tracking-[0.25em] uppercase mb-4">
               About Us
             </p>
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
-              Built by Engineers,
-              <br />
+            <h2 className="text-3xl md:text-4xl font-display font-semibold mb-6">
+              Built by Engineers,{" "}
               <span className="text-gradient">Driven by Results</span>
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              TechSpark Technologies was founded by <strong className="text-foreground">Engineer Kevin Muli</strong> with
-              a clear mission: to provide businesses with secure, scalable, and resilient technology solutions.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              We partner with organizations of all sizes to build custom digital products, manage IT infrastructure,
-              and safeguard operations against evolving cyber threats. Your growth is our spark.
-            </p>
+            <div className="space-y-4 mb-10">
+              <p className="text-sm text-muted-foreground leading-relaxed font-light">
+                Founded by <span className="text-foreground font-medium">Engineer Kevin Muli</span>, TechSpark
+                Technologies partners with organizations to build custom digital products, manage IT infrastructure,
+                and safeguard operations against evolving cyber threats.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed font-light">
+                We believe in secure, scalable, and resilient technology — solutions that don't just
+                work today, but grow with you tomorrow.
+              </p>
+            </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {/* Stats */}
+            <div className="grid grid-cols-4 gap-6">
               {stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <stat.icon className="h-5 w-5 text-primary mx-auto mb-2" />
-                  <p className="text-2xl font-display font-bold">{stat.value}</p>
-                  <p className="text-xs text-muted-foreground">{stat.label}</p>
+                <div key={stat.label}>
+                  <p className="text-2xl font-display font-semibold text-foreground">{stat.value}</p>
+                  <p className="text-2xs text-muted-foreground tracking-wide uppercase mt-1">{stat.label}</p>
                 </div>
               ))}
             </div>
           </motion.div>
 
-          {/* Visual element */}
+          {/* Visual */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative flex items-center justify-center"
           >
-            <div className="aspect-square rounded-2xl glass glow-border flex items-center justify-center overflow-hidden">
-              <div className="text-center p-8">
-                <Zap className="h-20 w-20 text-primary mx-auto mb-6 animate-pulse-glow" />
-                <p className="font-display text-3xl font-bold">
+            <div className="w-full aspect-square rounded-2xl border border-border/30 bg-card/20 flex items-center justify-center relative overflow-hidden">
+              {/* Subtle grid pattern */}
+              <div className="absolute inset-0 opacity-[0.03]" style={{
+                backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 39px, hsl(199 89% 48%) 39px, hsl(199 89% 48%) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, hsl(199 89% 48%) 39px, hsl(199 89% 48%) 40px)`
+              }} />
+
+              <div className="text-center relative z-10">
+                <Zap className="h-12 w-12 text-primary/40 mx-auto mb-4" />
+                <p className="font-display text-xl font-semibold tracking-wide">
                   TECH<span className="text-gradient">SPARK</span>
                 </p>
-                <p className="text-muted-foreground text-sm mt-2">Technologies</p>
+                <p className="text-2xs text-muted-foreground tracking-[0.2em] uppercase mt-1">Technologies</p>
               </div>
             </div>
-            {/* Decorative glow */}
-            <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-3xl -z-10" />
           </motion.div>
         </div>
       </div>
