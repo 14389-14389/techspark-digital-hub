@@ -11,34 +11,34 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="section-padding border-t border-border/20">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-3">
+          <p className="text-2xs font-medium text-primary tracking-[0.25em] uppercase mb-4">
             Get In Touch
           </p>
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-            Let's <span className="text-gradient">Talk</span>
+          <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4">
+            Let's Work Together
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Ready to spark your digital transformation? Reach out and let's build something amazing together.
+          <p className="text-sm text-muted-foreground max-w-md mx-auto font-light">
+            Ready to spark your digital transformation? We'd love to hear from you.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-12">
+        <div className="grid lg:grid-cols-5 gap-16">
           {/* Contact info */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-2 space-y-6"
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-2 space-y-8"
           >
             {[
               { icon: Mail, label: "Email", value: "info@techspark.co.ke" },
@@ -46,12 +46,10 @@ const ContactSection = () => {
               { icon: MapPin, label: "Location", value: "Nairobi, Kenya" },
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <item.icon className="h-5 w-5 text-primary" />
-                </div>
+                <item.icon className="h-4 w-4 text-primary/50 mt-0.5" />
                 <div>
-                  <p className="text-sm text-muted-foreground">{item.label}</p>
-                  <p className="font-medium">{item.value}</p>
+                  <p className="text-2xs text-muted-foreground tracking-wide uppercase">{item.label}</p>
+                  <p className="text-sm font-medium mt-0.5">{item.value}</p>
                 </div>
               </div>
             ))}
@@ -59,52 +57,52 @@ const ContactSection = () => {
 
           {/* Form */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ delay: 0.1, duration: 0.7 }}
             className="lg:col-span-3"
           >
             {submitted ? (
-              <div className="glass rounded-xl p-12 text-center glow-border">
-                <Send className="h-10 w-10 text-primary mx-auto mb-4" />
-                <h3 className="font-display text-xl font-semibold mb-2">Message Sent!</h3>
-                <p className="text-muted-foreground">We'll get back to you shortly.</p>
+              <div className="rounded-lg border border-border/30 p-12 text-center">
+                <Send className="h-5 w-5 text-primary mx-auto mb-4" />
+                <h3 className="font-display text-sm font-medium mb-2">Message Sent</h3>
+                <p className="text-xs text-muted-foreground">We'll be in touch shortly.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="glass rounded-xl p-8 space-y-5">
-                <div className="grid sm:grid-cols-2 gap-5">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <input
                     type="text"
-                    placeholder="Your Name"
+                    placeholder="Name"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
+                    className="w-full px-4 py-3 rounded-md bg-card/30 border border-border/30 text-foreground text-xs placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/30 transition-colors duration-300"
                   />
                   <input
                     type="email"
-                    placeholder="Email Address"
+                    placeholder="Email"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
+                    className="w-full px-4 py-3 rounded-md bg-card/30 border border-border/30 text-foreground text-xs placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/30 transition-colors duration-300"
                   />
                 </div>
                 <input
                   type="text"
                   placeholder="Subject"
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition"
+                  className="w-full px-4 py-3 rounded-md bg-card/30 border border-border/30 text-foreground text-xs placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/30 transition-colors duration-300"
                 />
                 <textarea
-                  rows={4}
+                  rows={5}
                   placeholder="Tell us about your project..."
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition resize-none"
+                  className="w-full px-4 py-3 rounded-md bg-card/30 border border-border/30 text-foreground text-xs placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/30 transition-colors duration-300 resize-none"
                 />
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all hover:shadow-[var(--shadow-glow)]"
+                  className="inline-flex items-center gap-2 px-7 py-3 rounded-md bg-primary text-primary-foreground text-xs font-medium tracking-wide uppercase hover:bg-primary/90 transition-all duration-300"
                 >
                   Send Message
-                  <Send className="h-4 w-4" />
+                  <Send className="h-3 w-3" />
                 </button>
               </form>
             )}
