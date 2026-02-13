@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Backend API URL - change this when deploying
-const API_URL = 'http://localhost:8000/api';
+// ✅ USE ENVIRONMENT VARIABLE FOR PRODUCTION, FALLBACK TO LOCALHOST FOR DEVELOPMENT
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
 
 const api = axios.create({
   baseURL: API_URL,
