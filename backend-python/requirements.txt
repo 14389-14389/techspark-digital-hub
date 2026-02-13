@@ -1,14 +1,29 @@
+# FastAPI
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
+
+# MongoDB - USE COMPATIBLE VERSIONS
 motor==3.3.2
+pymongo==4.5.0
 beanie==1.23.0
+
+# Authentication
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
 python-multipart==0.0.6
+
+# Environment
 python-dotenv==1.0.0
+
+# HTTP Client
 httpx==0.25.1
+
+# Validation - PIN THESE SPECIFIC VERSIONS
 pydantic==2.5.0
+pydantic-core==2.14.6
 pydantic-settings==2.1.0
 email-validator==2.1.0
-bcrypt==4.0.1
+
+# DNS
 dnspython==2.6.1
