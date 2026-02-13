@@ -20,9 +20,9 @@ async def init_database():
         from app.models.contact import Contact
         from app.models.service_request import ServiceRequest
         from app.models.quote import Quote
-        from app.models.gallery import GalleryImage  # ✅ ADDED
-        from app.models.admin import Admin           # ✅ ADDED
-from app.models.password_reset import PasswordReset
+        from app.models.gallery import GalleryImage
+        from app.models.admin import Admin
+        from app.models.password_reset import PasswordReset
         
         # Initialize Beanie with ALL document models
         await init_beanie(
@@ -31,15 +31,15 @@ from app.models.password_reset import PasswordReset
                 Contact,
                 ServiceRequest,
                 Quote,
-                GalleryImage,  # ✅ ADDED
-                Admin,         # ✅ ADDED
-        PasswordReset,
+                GalleryImage,
+                Admin,
+                PasswordReset,
             ]
         )
         
-        print("MongoDB Atlas connected successfully!")
-        print(f"Database: {db_name}")
-        print(f"Models loaded: Contact, ServiceRequest, Quote, GalleryImage, Admin")
+        print("✅ MongoDB Atlas connected successfully!")
+        print(f"📊 Database: {db_name}")
+        print(f"📦 Models loaded: Contact, ServiceRequest, Quote, GalleryImage, Admin, PasswordReset")
         
         return database
         
