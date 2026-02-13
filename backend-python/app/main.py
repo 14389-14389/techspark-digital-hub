@@ -15,7 +15,7 @@ from app.routes import (
     admin_quotes_routes,
     admin_settings_routes,
     admin_password_reset,
-    service_request_routes  # ✅ ADD THIS - MISSING!
+    service_request_routes
 )
 
 load_dotenv()
@@ -24,20 +24,21 @@ load_dotenv()
 async def lifespan(app: FastAPI):
     # Startup
     print("\n" + "="*50)
-    print("🚀 Techspark Technologies Backend")
+    print("Techspark Technologies Backend")
     print("="*50)
     
     # Initialize database
     await init_database()
     
-    print("✅ FastAPI server ready")
-    print("✅ Gallery API loaded")
-    print("✅ Admin API loaded")
-    print("✅ Admin Contacts API loaded")
-    print("✅ Admin Services API loaded")
-    print("✅ Admin Quotes API loaded")
-    print("✅ Admin Settings API loaded")
-    print("✅ Service Request API loaded")  # ✅ ADD THIS
+    print("FastAPI server ready")
+    print("Gallery API loaded")
+    print("Admin API loaded")
+    print(" Admin Contacts API loaded")
+    print("Admin Services API loaded")
+    print(" Admin Quotes API loaded")
+    print(" Admin Settings API loaded")
+    print(" Admin Password Reset API loaded")
+    print(" Service Request API loaded")
     print("="*50 + "\n")
     yield
     # Shutdown
@@ -63,13 +64,14 @@ app.add_middleware(
         "http://127.0.0.1:5173",
         "http://127.0.0.1:3000",
         "http://127.0.0.1:8080",
+        "https://techspark-digital-hub.vercel.app",  # Production frontend
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Include all routers
+# Include all routers - PROPERLY FORMATTED
 app.include_router(contact_routes.router)
 app.include_router(gallery_routes.router)
 app.include_router(admin_routes.router)
@@ -78,8 +80,7 @@ app.include_router(admin_services_routes.router)
 app.include_router(admin_quotes_routes.router)
 app.include_router(admin_settings_routes.router)
 app.include_router(admin_password_reset.router)
-    admin_password_reset,
-app.include_router(service_request_routes.router)  # ✅ ADD THIS - MISSING!
+app.include_router(service_request_routes.router)
 
 @app.get("/")
 async def root():
@@ -122,7 +123,8 @@ async def api_health():
         "services_api": "loaded",
         "quotes_api": "loaded",
         "settings_api": "loaded",
-        "service_request_api": "loaded",  # ✅ ADD THIS
+        "password_reset_api": "loaded",
+        "service_request_api": "loaded",
         "timestamp": datetime.utcnow().isoformat()
     }
 
