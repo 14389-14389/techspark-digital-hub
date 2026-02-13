@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Lock, User, LogIn, Shield } from 'lucide-react';
 import { useAdmin } from '../../contexts/AdminContext';
@@ -82,6 +82,11 @@ const AdminLogin = () => {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="flex items-center justify-end mb-4">
+            <Link to="/admin/forgot-password" className="text-xs text-primary hover:text-primary/80">
+              Forgot password?
+            </Link>
+          </div>
             <div>
               <label className="block text-xs font-medium text-muted-foreground mb-2">
                 Username

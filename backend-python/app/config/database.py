@@ -22,6 +22,7 @@ async def init_database():
         from app.models.quote import Quote
         from app.models.gallery import GalleryImage  # ✅ ADDED
         from app.models.admin import Admin           # ✅ ADDED
+from app.models.password_reset import PasswordReset
         
         # Initialize Beanie with ALL document models
         await init_beanie(
@@ -32,6 +33,7 @@ async def init_database():
                 Quote,
                 GalleryImage,  # ✅ ADDED
                 Admin,         # ✅ ADDED
+        PasswordReset,
             ]
         )
         

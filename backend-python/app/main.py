@@ -14,6 +14,7 @@ from app.routes import (
     admin_services_routes,
     admin_quotes_routes,
     admin_settings_routes,
+    admin_password_reset,
     service_request_routes  # ✅ ADD THIS - MISSING!
 )
 
@@ -76,6 +77,8 @@ app.include_router(admin_contacts_routes.router)
 app.include_router(admin_services_routes.router)
 app.include_router(admin_quotes_routes.router)
 app.include_router(admin_settings_routes.router)
+app.include_router(admin_password_reset.router)
+    admin_password_reset,
 app.include_router(service_request_routes.router)  # ✅ ADD THIS - MISSING!
 
 @app.get("/")
